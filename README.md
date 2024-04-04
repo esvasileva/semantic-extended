@@ -24,15 +24,15 @@ gitGraph
     commit
     checkout release-1
     merge fix
-    commit
+    commit tag: "pre-release"
     commit
     checkout main
-    merge release-1
+    merge release-1 tag: "release"
     commit
 ```
 
 Notes:
 
 - Use squash and merge strategy (all commits from child branch are squashed into single one) for feature and fix branches to merge into release branch
-- Use rebase and merge strategy (all commits from release branch are moved to upstream branch, e.g. like fast-forward merge) for release branches
+- Use rebase and merge strategy (all commits from release branch are moved to upstream branch, e.g. like fast-forward merge) to merge release branch into upstream (or trunk, or main)
 - Don't create next release branch until current release branch is merged to upstream (otherwise you'll need to rebase next release branch from time to time)  
