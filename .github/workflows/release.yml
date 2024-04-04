@@ -1,0 +1,33 @@
+name: 'Release'
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions: write-all
+
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+
+jobs:
+  release:
+    name: 'Release'
+    runs-on: ubuntu-20.04
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v4
+        with:
+          # required if you are using personal access token with admin priveleges
+          # otherwise next action will use embedded GITHUB_TOKEN that cannot bypass branch protection rules
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: 'Release'
+        uses: cycjimmy/semantic-release-action@v4
+        with:
+          semantic_version: 23.0.0
+          extra_plugins: |
+            @semantic-release/commit-analyzer@11.1.0
+            conventional-changelog-conventionalcommits@7.0.2
