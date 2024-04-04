@@ -1,0 +1,40 @@
+# read more about workflow https://habr.com/ru/articles/662738/
+name: 'Validate PR title'
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - edited
+    branches-ignore:
+      - main
+
+permissions: write-all
+
+env:
+  GITHUB_TOKEN: ${{ github.token }}
+
+jobs:
+  pr-title:
+    name: 'Validate PR title'
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        with:
+          types: |
+            fix
+            feat
+            docs
+            ci
+            chore
+            refactor
+            revert
+          requireScope: false
+          subjectPattern: ^[A-Z].+$
+          subjectPatternError: |
+            The subject "{subject}" found in the pull request title "{title}"
+            didn't match the configured pattern. Please ensure that the subject
+            starts with an uppercase character.
+          wip: true
+          validateSingleCommit: false
