@@ -4,7 +4,7 @@ Extended semantic-release environment
 
 # Branching strategy
 
-Branching strategy is [Trunk Based Development](https://trunkbaseddevelopment.com/) [short-lived feature branches](https://trunkbaseddevelopment.com/short-lived-feature-branches/):
+Branching strategy is [Trunk Based Development](https://trunkbaseddevelopment.com/) with [short-lived feature branches](https://trunkbaseddevelopment.com/short-lived-feature-branches/):
 
 ```mermaid
 gitGraph
