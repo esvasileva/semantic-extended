@@ -30,4 +30,5 @@ jobs:
           semantic_version: 23.0.0
           extra_plugins: |
             @semantic-release/commit-analyzer@11.1.0
+            @semantic-release/exec@6.0.3
             conventional-changelog-conventionalcommits@7.0.2
