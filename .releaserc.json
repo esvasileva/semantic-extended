@@ -26,6 +26,13 @@
       }
     ],
     [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md",
+        "changelogTitle": "# Changelog\n\nAll notable changes to this project will be documented in this file."
+      }
+    ],
+    [
       "@semantic-release/exec",
       {
         "prepareCmd": "sed -i 's/^version.*$/version: v${nextRelease.version}/' meta.yml"
