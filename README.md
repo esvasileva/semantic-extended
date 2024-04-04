@@ -1,4 +1,4 @@
-# semantic-basic
+# semantic-extended
 
 Extended semantic-release environment
 
